@@ -1,0 +1,14 @@
+[Unit]
+Description=Kubernetes Proxy Service
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5
+User=mbulla
+ExecStart=/usr/bin/kubectl proxy
+
+[Install]
+WantedBy=multi-user.target

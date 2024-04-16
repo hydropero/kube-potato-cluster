@@ -1,0 +1,14 @@
+[Unit]
+Description=ssh tunneler
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=forking
+#Restart=always
+#RestartSec=5
+User=mbulla
+ExecStart=/usr/bin/ssh -f -N -L 8001:localhost:8001 mbulla@192.168.87.241 
+
+[Install]
+WantedBy=multi-user.target
